@@ -1,6 +1,6 @@
 # tf-cognito
 
-> For global standards, way-of-workings, and pre-commit checklist, see `~/.kiro/steering/behavior.md`
+> For global standards, way-of-workings, and pre-commit checklist, see `~/.claude/CLAUDE.md`
 
 ## Role
 
@@ -29,6 +29,10 @@ Cloud Engineer specializing in Terraform and AWS Cognito.
 
 - Backend: S3 key `tf-cognito.tfstate` in `mdekort-tfstate-075673041815`
 - Providers: AWS `~> 6.0`, Cloudflare `~> 5.0`
+
+## MCP servers
+
+This repo has a project-scoped `cloudflare` MCP server (`.mcp.json`) — see `~/.claude/references/mcp-catalog.md`.
 
 ## Related Repositories
 
