@@ -3,6 +3,10 @@ resource "aws_cognito_user_pool" "auth" {
   username_attributes = ["email"]
   mfa_configuration   = "ON"
 
+  admin_create_user_config {
+    allow_admin_create_user_only = true
+  }
+
   software_token_mfa_configuration {
     enabled = true
   }
