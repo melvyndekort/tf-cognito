@@ -14,7 +14,10 @@ resource "aws_cognito_user_pool" "auth" {
   email_configuration {
     email_sending_account = "DEVELOPER"
     from_email_address    = var.noreply_email
-    source_arn            = "arn:aws:ses:${var.aws_region}:${data.aws_caller_identity.current.account_id}:identity/${var.noreply_email}"
+    # The SES identity is the verified domain (mdekort.nl); there is no
+    # separate noreply@ email identity, and Cognito's UpdateUserPool fails with
+    # "Email address is not verified" when source_arn points at one.
+    source_arn = "arn:aws:ses:${var.aws_region}:${data.aws_caller_identity.current.account_id}:identity/${split("@", var.noreply_email)[1]}"
   }
 
   schema {
